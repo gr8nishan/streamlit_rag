@@ -56,6 +56,7 @@ class DocumentQAClient:
                 print("Processing files locally using DocumentProcessor")
                 result = self.processor.process_files(file_contents)
                 processors[self.session_id] = self.processor
+                print("result", result)
                 return {"session_id": self.session_id, "message": result["message"]}
 
 
