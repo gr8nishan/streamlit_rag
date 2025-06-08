@@ -25,7 +25,7 @@ class DocumentQAClient:
             
             # Use provided API key or fall back to environment variable
             api_key = api_key or Config.GROQ_API_KEY
-            
+            print("grok api_key", api_key)
             # Prepare files for multipart/form-data
             files_to_send = []
             file_contents = []
