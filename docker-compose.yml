@@ -1,0 +1,26 @@
+version: "3.9"
+services:
+  api:
+    build:
+      context: .
+      dockerfile: src/Dockerfile
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/app
+    environment:
+      - PYTHONPATH=/app
+    working_dir: /app/src/api
+
+  streamlit:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8601:8601"
+    volumes:
+      - .:/app
+    depends_on:
+      - api
+    environment:
+      - PYTHONPATH=/app
